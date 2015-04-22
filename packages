@@ -1,12 +1,12 @@
 sudo
 yaourt
-infinality-bundle
-ibfonts-meta-base
-ibfonts-meta-extended
 xorx-server
 xorg-xinit
 xorg-xrdb
-awesome
+infinality-bundle
+ibfonts-meta-base
+ibfonts-meta-extended
+i3
 gnome-themes-standard
 gnome-icon-theme
 lxappearance
