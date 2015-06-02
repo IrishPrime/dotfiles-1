@@ -13,4 +13,5 @@ cp ~/dotfiles/.vimrc ~/.vimrc
 # Install Plugins
 vim +PluginInstall +qall
 
-
+# xinitrc
+cp ~/dotfiles/.xinitrc ~/
