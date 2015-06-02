@@ -1,12 +1,3 @@
-sudo
-yaourt
-xorx-server
-xorg-xinit
-xorg-xrdb
 infinality-bundle
 ibfonts-meta-base
 ibfonts-meta-extended
-i3
-gnome-themes-standard
-gnome-icon-theme
-lxappearance
