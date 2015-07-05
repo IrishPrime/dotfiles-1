@@ -1,0 +1,8 @@
+#include "/home/benj/.colors/base16-default"
+
+Xft.dpi: 160
+
+! URxvt config
+URxvt.scrollstyle: plain
+URxvt.font: xft:CamingoCode:size=10
+
