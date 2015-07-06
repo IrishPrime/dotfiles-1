@@ -15,7 +15,7 @@ while read -r line ; do
 			;;
 		R*)
 			# music info
-			music="%{B$COLOR_FOCUSED_OCCUPIED_BG}$PADDING${line#?}$PADDING%{B-}"
+			music="%{B$COLOR_FOCUSED_OCCUPIED_BG}%{F$COLOR_FOCUSED_OCCUPIED_FG}$PADDING${line#?}$PADDING%{F-}%{B-}"
 			;;
 		C*)
 			# clock output
