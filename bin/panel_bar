@@ -13,6 +13,10 @@ while read -r line ; do
 			# date output
 			date="$PADDING${line#?}$PADDING"
 			;;
+		R*)
+			# music info
+			music="%{B$COLOR_FOCUSED_OCCUPIED_BG}$PADDING${line#?}$PADDING%{B-}"
+			;;
 		C*)
 			# clock output
 			clock="$PADDING${line#?}$PADDING"
@@ -20,7 +24,7 @@ while read -r line ; do
 
 		B*)
 			# battery percent output
-			battery="%{A:bat.sh:}$PADDING${line#?}$PADDING%{A}%{B-}"
+			battery="%{A:bat.sh:}$PADDING${line#?}$PADDING%{A}"
 			;;
 		T*)
 			# xtitle output
@@ -90,5 +94,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm_infos}%{c}${title}%{r}${wifi}${volume}${battery}${date}${clock}${power}"
+	printf "%s\n" "%{l}${wm_infos}${music}%{c}${title}%{r}${wifi}${volume}${battery}${date}${clock}${power}"
 done
