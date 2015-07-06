@@ -9,7 +9,7 @@ bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 
-bspc monitor -d $(echo '\uf109') $(echo '\uf121') $(echo '\uf120') $(echo '\uf07c') $(echo '\uf0ac') $(echo '\uf003') $(echo '\uf001') $(echo '\uf03e') $(echo '\uf0c3')  $(echo '\uf141')
+bspc monitor -d $(echo '\uf109') $(echo '\uf121') $(echo '\uf120') $(echo '\uf07c') $(echo '\uf0ac') $(echo '\uf003') $(echo '\uf001') $(echo '\uf03e') #$(echo '\uf0c3')  $(echo '\uf141')
 
 #bspc rule -a Chromium desktop=^5
 #bspc rule -a Google-chrome-stable desktop=^2
