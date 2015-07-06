@@ -8,18 +8,37 @@ num_mon=$(bspc query -M | wc -l)
 
 while read -r line ; do
 	case $line in
+		D*)
+			# date output
+			date="     ${line#?}     "
+			;;
 		C*)
 			# clock output
-			clock=" ${line#?} "
+			clock="     ${line#?}     "
 			;;
+
 		B*)
 			# battery percent output
-			battery="%{A:bat.sh:} ${line#?} %{A}"
+			battery="%{A:bat.sh:}     ${line#?}    %{A}%{B-}"
 			;;
 		T*)
 			# xtitle output
-			title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
+			title="${line#?}"
 			;;
+
+		V*)
+			# alsa volume
+			volume="     ${line#?}     "
+			;;
+		L*)
+			# wifi link
+			wifi="     ${line#?}     "
+			;;
+		P*)
+			# power
+			power="     ${line#?}     "
+			;;
+
 		W*)
 			# bspwm internal state
 			wm_infos=""
@@ -65,14 +84,10 @@ while read -r line ; do
 						# urgent desktop
 						wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG}     ${name}     %{B-}%{F-}"
 						;;
-					#L*)
-						# layout
-					#	wm_infos="$wm_infos  %{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} ${name} %{B-}%{F-}"
-					#	;;
 				esac
 				shift
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm_infos}%{c}${title}%{r}${battery}${clock}"
+	printf "%s\n" "%{l}${wm_infos}%{c}${title}%{r}${wifi}${volume}${battery}${date}${clock}${power}"
 done

@@ -1,4 +1,4 @@
-#include "/home/benj/.colors/base16-default"
+#include "/home/benj/.colors/base16-railscasts.dark.256.xresources"
 
 Xft.dpi: 160
 
@@ -6,5 +6,4 @@ Xft.dpi: 160
 URxvt.scrollstyle: plain
 URxvt.font: xft:CamingoCode:size=10
 URxvt*.transparent: true
-! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*.shading: 20
+URxvt*.shading: 10

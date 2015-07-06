@@ -1,12 +1,12 @@
 # my configs
 XF86AudioRaiseVolume
-	amixer -c 1 set Master 5%+ unmute
+	amixer set Master 5%+ unmute
 
 XF86AudioLowerVolume
-	amixer -c 1 set Master 5%- unmute
+	amixer set Master 5%- unmute
 
 XF86AudioMute
-	amixer -c 1 set Master toggle
+	amixer set Master toggle
 
 XF86MonBrightnessUp
 	xbacklight -inc 10%
@@ -14,6 +14,20 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	xbacklight -dec 10%
 
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioNext
+	mpc next
+
+XF86AudioPrev
+	mpc prev
+
+XF86KbdBrightnessUp
+	kbdlight up	
+
+XF86KbdBrightnessDown
+	kbdlight down
 
 #
 # bspwm hotkeys
@@ -107,7 +121,7 @@ super + Return
 	urxvt
 
 super + space
-	dmenu_run -fn 'CamingoCode-10' -h 60 -hist ~/.dmenu_hist
+	dmenu_run -nb '#252527' -sb '#404E5E' -fn 'Cantarell-10' -h 46 -hist ~/.dmenu_hist
 
 # make sxhkd reload its configuration files:
 super + Escape
