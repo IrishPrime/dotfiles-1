@@ -11,16 +11,13 @@ bspc config focus_by_distance   true
 
 bspc monitor -d $(echo '\uf109') $(echo '\uf121') $(echo '\uf120') $(echo '\uf07c') $(echo '\uf0ac') $(echo '\uf003') $(echo '\uf001') $(echo '\uf03e') $(echo '\uf0c3')  $(echo '\uf141')
 
-#bspc rule -a Chromium desktop=^2
+#bspc rule -a Chromium desktop=^5
 #bspc rule -a Google-chrome-stable desktop=^2
 #bspc rule -a Firefox desktop=^2
 #bspc rule -a Opera desktop=^2
 #bspc rule -a vlc desktop=^3
-#bspc rule -a vlc desktop=^3
-#bspc rule -a vlc desktop=^3
-#bspc rule -a vlc desktop=^3
-#bspc rule -a vlc desktop=^3
 bspc rule -a thunar floating=on
+bspc rule -a file-roller floating=on
 
 panel &
 compton -c &
