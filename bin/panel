@@ -2,8 +2,10 @@
 
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=40
-PANEL_FONT_FAMILY="CamingoCode:size=8"
-ICON_FONT="FontAwesome:size=8"
+#PANEL_FONT_FAMILY="CamingoCode:size=11"
+PANEL_FONT_FAMILY="Cantarell:size=9"
+ICON_FONT="FontAwesome:size=11"
+ICON_FONT2="fontcustom:size=11"
 # export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
@@ -19,15 +21,41 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding $PANEL_HEIGHT
 bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-clock -sf 'S%a %I:%M %p' > "$PANEL_FIFO" &
-battery -sf "B$(echo '\uf0e7') %i%%" > "$PANEL_FIFO" &
+
+# clock
+while true;
+	do date +"C%b %u %l:%M %p";
+	sleep 5;
+done > "$PANEL_FIFO" &
+
+# battery
+FULL_BATT=80
+HALF_BATT=40
+LOW_BATT=20
+while true;
+do
+BATT_LEVEL=$(acpi -b | grep -o '..%' | sed 's/%//')
+	if [ $BATT_LEVEL -ge $FULL_BATT ]
+		then
+			echo 'B\uf116' $BATT_LEVEL%
+	fi
+
+	if [ $BATT_LEVEL -ge $HALF_BATT -a $BATT_LEVEL -lt $FULL_BATT ]
+		then
+			echo 'B\uf117' $BATT_LEVEL%
+	fi
+
+	if [ $BATT_LEVEL -lt $LOW_BATT ]
+		then
+			echo 'B%{T3}\uf115%{T1}' $BATT_LEVEL%
+	fi
+
+
+	sleep 30;
+done > "$PANEL_FIFO" &
 
 . panel_colors
 
-
-
-
-
-cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$ICON_FONT" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$ICON_FONT" -f "$ICON_FONT2" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | zsh &
 
 wait

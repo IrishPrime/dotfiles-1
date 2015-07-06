@@ -25,7 +25,7 @@ mkdir ~/.config
 
 # copy bspwm and sxhkd configs
 cp -r ~/dotfiles/.config/bspwm ~/.config
-cp -r ~/dotfiles/.config/sxhkd ~/config
+cp -r ~/dotfiles/.config/sxhkd ~/.config
 
 # create bin folder and notify to add it to $PATH
 mkdir ~/bin
