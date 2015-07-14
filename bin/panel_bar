@@ -2,7 +2,7 @@
 #
 # Example panel for LemonBoy's bar
 
-. panel_colors
+source panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 PADDING="  "
